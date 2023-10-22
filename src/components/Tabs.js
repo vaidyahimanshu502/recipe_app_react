@@ -1,30 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { CiPizza } from "react-icons/ci";
-import { GiNoodles, GiFruitBowl, GiCheckMark } from "react-icons/gi";
+import {
+  GiNoodles,
+  GiFruitBowl,
+  GiCheckMark,
+  GiIceCreamCone,
+} from "react-icons/gi";
 import { MdOutlineIcecream } from "react-icons/md";
 // import { fetchTabData } from "../service";
 
 const Tabs = (props) => {
+  const [active, setActive] = useState("Pizza");
+  const [tabLabel, setTabLabel] = useState([
+    {
+      name: "Pizza",
+      icon: <CiPizza />,
+      id: "e0f06a8d4769e6a9344ff766d04a206f",
+    },
+    {
+      name: "Noodles",
+      icon: <GiNoodles />,
+      id: "e0f06a8d4769e6a9344ff766d04a206f",
+    },
+    {
+      name: "Desert",
+      icon: <GiFruitBowl />,
+      id: "e0f06a8d4769e6a9344ff766d04a206f",
+    },
+    {
+      name: "Ice-Cream",
+      icon: <GiIceCreamCone />,
+      id: "e0f06a8d4769e6a9344ff766d04a206f",
+    },
+  ]);
+
+  const handleClick = (itemName, id) => {
+    setActive(itemName);
+  };
   return (
     <div className="container">
       <h1 className="recipeHeading">What would you like to have!</h1>
       <div className="tabs">
-        <div className="tablist active">
-          <CiPizza />
-          <span>Pizza</span>
-        </div>
-        <div className="tablist">
-          <GiNoodles />
-          <span>Noodles</span>
-        </div>
-        <div className="tablist">
-          <GiFruitBowl />
-          <span>Desert</span>
-        </div>
-        <div className="tablist">
-          <MdOutlineIcecream />
-          <span>ice cream</span>
-        </div>
+        {tabLabel.map((item, index) => (
+          <div
+            onClick={() => handleClick(item.name, item.id)}
+            key={index}
+            className={`tablist ${active == item.name ? "active" : ""}`}
+          >
+            {item.icon}
+            <span>{item.name}</span>
+          </div>
+        ))}
       </div>
       <div className="recipe_banner">
         <div className="left-col">
