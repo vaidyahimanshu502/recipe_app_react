@@ -7,7 +7,7 @@ const RecipeList = () => {
       <div className="heading-line">
         <strong>Search Recipes</strong>
         <div className="input-wrapper">
-          <input type="text" placeholder="Search" />
+          <input type="text" placeholder="Search recipe..." />
           <button>
             <BsSearch />
           </button>
