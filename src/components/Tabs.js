@@ -41,6 +41,26 @@ const Tabs = (props) => {
                 <GiCheckMark size="18px" color="#6fcb9f" />
                 &nbsp;<span>Fresh ground pepper</span>
               </li>
+              <li>
+                <GiCheckMark size="18px" color="#6fcb9f" />
+                &nbsp;<span>Fresh ground pepper</span>
+              </li>
+              <li>
+                <GiCheckMark size="18px" color="#6fcb9f" />
+                &nbsp;<span>Fresh ground pepper</span>
+              </li>
+              <li>
+                <GiCheckMark size="18px" color="#6fcb9f" />
+                &nbsp;<span>Fresh ground pepper</span>
+              </li>
+              <li>
+                <GiCheckMark size="18px" color="#6fcb9f" />
+                &nbsp;<span>Fresh ground pepper</span>
+              </li>
+              <li>
+                <GiCheckMark size="18px" color="#6fcb9f" />
+                &nbsp;<span>Fresh ground pepper</span>
+              </li>
             </ul>
           </div>
         </div>
