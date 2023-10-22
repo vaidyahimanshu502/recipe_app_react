@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Header from "./components/Header";
+import Tabs from "./components/Tabs";
+import RecipeList from "./components/RecipeList";
+import "./App.scss";
 
 function App() {
- 
   return (
     <div className="main">
-      <h1>Hello</h1>
+      <Header />
+      <Tabs />
+      <RecipeList />
     </div>
   );
 }

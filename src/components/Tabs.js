@@ -1,54 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { CiPizza } from "react-icons/ci";
+import { GiNoodles, GiFruitBowl, GiCheckMark } from "react-icons/gi";
+import { MdOutlineIcecream } from "react-icons/md";
+// import { fetchTabData } from "../service";
 
-const Tabs = () => {
+const Tabs = (props) => {
   return (
     <div className="container">
       <h1 className="recipeHeading">What would you like to have!</h1>
       <div className="tabs">
-        {tabLabel.map((item, index) => (
-          <div
-            onClick={() => (
-              handleClick(item.name, item.id), props.setLoader(true)
-            )}
-            key={index}
-            className={`tablist ${active === item.name ? "active" : ""}`}
-          >
-            {item.icon}
-            <span>{item.name}</span>
-          </div>
-        ))}
+        <div className="tablist active">
+          <CiPizza />
+          <span>Pizza</span>
+        </div>
+        <div className="tablist">
+          <GiNoodles />
+          <span>Noodles</span>
+        </div>
+        <div className="tablist">
+          <GiFruitBowl />
+          <span>Desert</span>
+        </div>
+        <div className="tablist">
+          <MdOutlineIcecream />
+          <span>ice cream</span>
+        </div>
       </div>
       <div className="recipe_banner">
-        {tabData !== "" && tabData.recipe && (
-          <>
-            <div className="left-col">
-              <span className="badge">
-                {tabData.recipe?.cuisineType[0].toUpperCase()}
-              </span>
-              <h1>{tabData.recipe.label}</h1>
-              <p>
-                <strong>Recipe by:</strong>
-                <small>{tabData.recipe.source}</small>
-              </p>
-              <h3>Ingredients</h3>
-              <div className="ingredients">
-                <ul>
-                  {tabData.recipe.ingredientLines.map((list, index) => (
-                    <li key={index}>
-                      <GiCheckMark size="18px" color="#6fcb9f" />
-                      &nbsp;<span>{list}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="right-col">
-              <div className="image-wrapper">
-                <img src={tabData.recipe.image} alt={tabData.recipe.label} />
-              </div>
-            </div>
-          </>
-        )}
+        <div className="left-col">
+          <span className="badge">Italian</span>
+          <h1>White Pizza</h1>
+          <p>
+            <strong>Recipe by:</strong>
+            <small>Food52</small>
+          </p>
+          <h3>Ingredients</h3>
+          <div className="ingredients">
+            <ul>
+              <li>
+                <GiCheckMark size="18px" color="#6fcb9f" />
+                &nbsp;<span>Fresh ground pepper</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="right-col">
+          <div className="image-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1378&q=80"
+              alt=""
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
