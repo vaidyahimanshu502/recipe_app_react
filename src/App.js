@@ -1,22 +1,20 @@
-import React, { useState } from "react";
-import Header from "./components/Header";
-import Tabs from "./components/Tabs";
-import RecipeList from "./components/RecipeList";
+
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.scss";
+import Details from "./components/Details";
+import Home from "./Home";
+import Fav from "./components/Fav";
 
 function App() {
-  const [loader, setLoader] = useState(true);
   return (
-    <div className="main">
-      <Header />
-      <Tabs setLoader={setLoader} />
-      <RecipeList setLoader={setLoader} />
-      {loader && (
-        <div className="loader">
-          <div className="spinner"></div>
-        </div>
-      )}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/details/:k" element={<Details />} />
+        <Route path="/fav" element={<Fav />} />
+      </Routes>
+    </Router>
   );
 }
 

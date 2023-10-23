@@ -32,3 +32,17 @@ export const fetchTabData = async (defaultId) => {
     return error;
   }
 };
+
+export const details = async (k) => {
+  const { api_id, api_key } = envVar;
+  try {
+    const data = await fetch(
+      `https://api.edamam.com/api/recipes/v2?type=public&q=${k}&app_id=${api_id}&app_key=${api_key}`
+    );
+    const response = await data.json();
+    return response;
+  } catch (error) {
+    console.log("error in getting details!");
+    return error;
+  }
+};

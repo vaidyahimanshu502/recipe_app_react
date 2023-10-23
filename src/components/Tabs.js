@@ -11,7 +11,7 @@ import { fetchTabData } from "../service";
 const Tabs = (props) => {
   const [active, setActive] = useState("Pizza");
   const [tabData, setTabData] = useState("");
-  const [tabLabel, setTabLabel] = useState([
+  const [tabLabel] = useState([
     {
       name: "Pizza",
       icon: <CiPizza />,
@@ -39,6 +39,7 @@ const Tabs = (props) => {
     fetchTabData(id).then((response) => {
       setTabData(response);
       props.setLoader(false);
+      console.log(response)
     });
   };
 
@@ -58,7 +59,7 @@ const Tabs = (props) => {
               handleClick(item.name, item.id), props.setLoader(true)
             )}
             key={index}
-            className={`tablist ${active == item.name ? "active" : ""}`}
+            className={`tablist ${active === item.name ? "active" : ""}`}
           >
             {item.icon}
             <span>{item.name}</span>
